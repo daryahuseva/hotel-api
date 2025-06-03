@@ -8,7 +8,6 @@ import com.example.hotel_api.api.exceptions.NotFoundException;
 import com.example.hotel_api.api.factories.HotelDtoFactory;
 import com.example.hotel_api.store.entities.HotelEntity;
 import com.example.hotel_api.store.repositories.HotelRepository;
-import jakarta.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -121,7 +120,8 @@ public class HotelService {
                         .filter(amenity -> amenity != null && !amenity.isEmpty())
                         .collect(Collectors.groupingBy(amenity -> amenity, Collectors.counting()));
             default:
-                throw new BadRequestException("Invalid histogram parameter: " + param + ". Supported parameters are brand, city, county, amenities.");
+                throw new BadRequestException("Invalid histogram parameter: " + param + ". Supported parameters" +
+                        " are brand, city, county, amenities.");
         }
     }
 }

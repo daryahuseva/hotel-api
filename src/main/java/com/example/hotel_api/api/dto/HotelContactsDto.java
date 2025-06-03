@@ -9,8 +9,9 @@ import lombok.*;
 @Builder
 @Schema(description = "Contact information for the hotel")
 public class HotelContactsDto {
-    @Schema(description = "Hotel phone number", example = "+375 29 4556344")
+    @Schema(description = "Hotel phone number", example = "+375 17 309-80-00")
     String phone;
-    @Schema(description = "Hotel email address", example = "hotel@example.com")
+
+    @Schema(description = "Hotel email address", example = "doubletreeminsk.info@hilton.com")
     String email;
 }

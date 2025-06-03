@@ -13,16 +13,23 @@ import java.util.List;
 public class HotelDetailsDto {
     @Schema(description = "Unique identifier of the hotel", example = "1", accessMode = Schema.AccessMode.READ_ONLY)
     Long id;
-    @Schema(description = "Name of the hotel", example = "Grand Hyatt Warsaw")
+
+    @Schema(description = "Name of the hotel", example = "DoubleTree by Hilton Minsk")
     String name;
-    @Schema(description = "Brand of the hotel", example = "Hyatt")
+
+    @Schema(description = "Brand of the hotel", example = "Hilton")
     String brand;
+
     @Schema(description = "Address details of the hotel")
     HotelAddressDto address;
+
     @Schema(description = "Contact information of the hotel")
     HotelContactsDto contacts;
+
     @Schema(description = "Check-in/check-out times of the hotel")
     HotelArrivalTimeDto arrivalTime;
-    @Schema(description = "List of available amenities (e.g., WiFi, Pool, Fitness Center)", type = "array", example = "[\"WiFi\", \"Swimming Pool\", \"Fitness Center\"]")
+
+    @Schema(description = "List of available amenities (e.g., WiFi, Pool, Fitness Center)", type = "array",
+            example = "[\"Free WiFi\", \"Free parking\", \"Room service\"]")
     List<String> amenities;
 }

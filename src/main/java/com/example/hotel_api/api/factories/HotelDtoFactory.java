@@ -15,14 +15,17 @@ import com.example.hotel_api.store.entities.ContactEntity;
 
 import java.util.ArrayList;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Component
 public class HotelDtoFactory {
     public HotelBriefDto makeHotelBriefDto(HotelEntity hotel) {
         String fullAddress = Optional.ofNullable(hotel.getAddress())
                 .map(address -> String.format("%d %s, %s, %s, %s",
-                        address.getHouseNumber(), address.getStreet(), address.getCity(), address.getCounty(), address.getPostCode()))
+                        address.getHouseNumber(),
+                        address.getStreet(),
+                        address.getCity(),
+                        address.getPostCode(),
+                        address.getCounty()))
                 .orElse(null);
 
         String phoneNumber = Optional.ofNullable(hotel.getContacts())
@@ -44,8 +47,8 @@ public class HotelDtoFactory {
                         .houseNumber(address.getHouseNumber())
                         .street(address.getStreet())
                         .city(address.getCity())
-                        .county(address.getCounty())
                         .postCode(address.getPostCode())
+                        .county(address.getCounty())
                         .build())
                 .orElse(null);
 
@@ -71,10 +74,8 @@ public class HotelDtoFactory {
                 .contacts(contactsDto)
                 .arrivalTime(arrivalTimeDto)
                 .amenities(
-                        Optional.ofNullable(hotel.getAmenities())
-                                .orElseGet(ArrayList::new)
-                                .stream()
-                                .collect(Collectors.toList())
+                        new ArrayList<>(Optional.ofNullable(hotel.getAmenities())
+                                .orElseGet(ArrayList::new))
                 )
                 .build();
     }
@@ -85,8 +86,8 @@ public class HotelDtoFactory {
                         dto.getHouseNumber(),
                         dto.getStreet(),
                         dto.getCity(),
-                        dto.getCounty(),
-                        dto.getPostCode()
+                        dto.getPostCode(),
+                        dto.getCounty()
                 ))
                 .orElse(null);
 

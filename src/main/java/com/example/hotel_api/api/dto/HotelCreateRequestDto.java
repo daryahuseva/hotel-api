@@ -14,9 +14,11 @@ import lombok.*;
 public class HotelCreateRequestDto {
     @Schema(description = "Name of the hotel", example = "New Grand Hotel", required = true)
     String name;
-    @Schema(description = "Brand of the hotel", example = "Marriott")
+    @Schema(description = "Brand of the hotel", example = "Hilton")
     String brand;
-    @Schema(description = "Full description of the hotel", example = "A new hotel with modern amenities.")
+    @Schema(description = "Full description of the hotel", example = "The DoubleTree by Hilton Hotel " +
+            "Minsk offers 193 luxurious rooms in the Belorussian capital and stunning views of " +
+            "Minsk city from the hotel's 20th floor.Good!")
     String description;
 
     @Schema(description = "Address details of the hotel")
