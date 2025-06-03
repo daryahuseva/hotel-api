@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  hotel-api:
+    image: hotel-api:0.0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8092:8092"
+    environment:
+      - SERVER_PORT=8092
+    restart: unless-stopped
