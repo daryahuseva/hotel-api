@@ -1,0 +1,27 @@
+server:
+  port: 8092
+
+spring:
+  application:
+    name: hotel-api
+  profiles:
+    active: h2
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+    enabled: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /v3/api-docs
+  info:
+    title: SerwisRest API Documentation
+    description: Restful API for hotel.
+    contact:
+      name: Darya Huseva
+      email: dorothy.dmitrievna@gmail.com
